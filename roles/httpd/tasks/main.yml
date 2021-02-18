@@ -1,0 +1,37 @@
+---
+
+- name: Add epel repo
+  yum_repository:
+    name: epel
+    description: EPEL YUM repo
+    baseurl: http://download.fedoraproject.org/pub/epel/7/$basearch
+  register: addedrepo
+
+
+- name: Install Httpd ting
+  yum: name=httpd state=installed update_cache=true
+  when: addedrepo is succeeded
+  register: httpdinstalled
+  notify:
+   - Start Httpd
+
+- name: Create Web Root
+  when: httpdinstalled is succeeded
+  file: dest=/var/www/html/{{domain}} mode=775 state=directory owner=apache group=apache
+
+- name: copy index file
+  ansible.builtin.copy:
+    src: index.html
+    dest: /var/www/html/test.com/index.html
+    owner: apache
+    group: apache
+    mode: '0644'
+
+- name: Add site config
+  template:
+    src: httpd.conf.j2
+    dest: /etc/httpd/conf/httpd.conf
+    owner: root
+    group: root
+  notify:
+   - Reload Httpd
