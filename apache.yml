@@ -1,4 +1,6 @@
 ---
 - hosts: web
+  vars_files:
+    - "vars/private.yml"
   roles:
     - httpd

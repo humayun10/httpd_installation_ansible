@@ -15,6 +15,12 @@
   notify:
    - Start Httpd
 
+- name: Enable Httpd
+  service:
+    name: httpd
+    enabled: yes
+  when: httpdinstalled is succeeded
+
 - name: Create Web Root
   when: httpdinstalled is succeeded
   file: dest=/var/www/html/{{domain}} mode=775 state=directory owner=apache group=apache
