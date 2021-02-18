@@ -1,6 +1,10 @@
 ---
 - hosts: web
+  become: yes
+  become_user: root
+
   vars_files:
     - "vars/private.yml"
   roles:
-    - httpd
+#    - httpd
+    - users

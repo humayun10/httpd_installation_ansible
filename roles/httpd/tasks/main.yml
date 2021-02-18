@@ -41,3 +41,17 @@
     group: root
   notify:
    - Reload Httpd
+
+#- name: Create Admin User
+#  user:
+#    name: privateMan
+#    password: '{{ user_password }}'
+#    groups: sudo
+#    append: yes
+#    shell: /bin/bash
+#
+#- name: Add Admin Authorized Key
+#  authorized_key:
+#    user: privateMan
+#    key: '{{ pub_key }}'
+#    state: present
