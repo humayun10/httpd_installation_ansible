@@ -1,0 +1,41 @@
+---
+- hosts: "web"
+  become: yes
+  vars:
+    users:
+    - medz
+    - tahir
+  tasks:
+  - name: "Create user accounts and add users to groups"
+    user:
+      name: "{{ item }}"
+      groups: admin
+      shell: /bin/bash
+    with_items: "{{ users }}"
+
+  - name: Add authorized keys
+    authorized_key:
+      user: "{{ item }}"
+      key: "{{ lookup('file', 'roles/users/files/'+ item + '-sshkey.pub') }}" 
+    with_items: "{{ users }}"
+
+  - name: Add to sudoers
+    lineinfile:
+      dest: "/etc/sudoers"
+      state: "present"
+      regexp: "^%admin"
+      line: "%admin ALL=(ALL) NOPASSWD: ALL"
+
+
+
+#    - name: Add a new user named halam
+#      user:
+#        name: halam
+#        shell: /bin/bash
+#        password: "{{ halam_password }}"
+#    - name: Deploy SSH Key
+#      authorized_key:
+#        user: halam
+#        key: "{{ lookup('file', '/home/halam/.ssh/halam_ssh_key.pub') }}"
+#        state: present
+

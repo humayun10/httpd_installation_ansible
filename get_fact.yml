@@ -1,8 +1,0 @@
----
-- name: Ansible facts playbook
-  hosts: web
-  tasks:
-
-    -debug:
-       msg:
-          - " Data type ;ets see {{ ansible_all_ipv4_addresses }}"

@@ -1,0 +1,12 @@
+---
+users:
+  - username: oleg
+  - username: ahmed
+  - username: ray
+  - username: ria
+  - username: jack
+
+ssh_keys:
+  - tahir_pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6Ojd+Hmdep1i/Ca4TVWCUK+oNmfgEPcPxUilD8m49W49CR/+0OoTRvFUmPDrQS99J1lreelh79YUQDTpnkvdjrWWxupssE3fDo9j7oxdBzs3EnlmTWh/G6qjkXtLGXAyn7hVETZRrVSdVRKCgEhoPqEq+8F6RaDrsJZCcyzMnaUpfxOVJLB0o31ij/VvV0mBdylk7qxpEuIsm0R/TnV/vItGYPBlzL0VL9eNGJRUm84t2mPYzp9Tq4C5iYnbp/9BNFjiHgc5I9VLXKHUiNTTp0IlvuFxtuz/0A/YsGE4z9Rd0JKwHbxgMQBjPnF9DGz+3bTRGP8eXNyqil1X3+p21 tahir@gmail.com"
+  - medz_pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDj88kBbhszhPRO8LeOvgBKNQdNNCIDsKZMvQvWAl7uhs7FYaiAsjDnTV4OpG7J4vVxJ6SC4cJCj57AynYH/wVWfVtS0EMm1lmHJQ9DMGaGorY9rsiKe041WDm/RjL7HQixvLaLIOYXUaowrou6iEpXp2lJwDnxLPHteKjYpFqYPzWHGpf1hh/znPJaQhI9MvB/hgsOpDLMsNLI9Jgp2x+YBhObrTIpbJMqH1mllept6zOAfaaQMGXrayiY701Qy+i4C5pONRCV1J56ZmerFeMsztWU0IsejTZJnfxedEkONqVS+NoDyVwUNIZxCZthEom702IDQ7l8EJb857gGcwL/ medz@gmail.com"
+  - boss_pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCo1LPRpn0jBdJ4c8Bie0sL8a4fImsLjPg6c1GafDKtimIG2cuo56KTubGuIy58y7wMEjUf6heN3P+wB1n/uexOHYb95Et6OIWykhz/KG1vCP4g37bgE9DZZxXa1frZnlK473tmyffrQAhvSS1b/O/UrD2ZtKIN7L7SJ4ljQ5ILY/EK1xvETHBqVb76SMwls9VIZY5tHWPOIDfrFt6Xlwpzsc564hciZtGJrAx22J4jJI+jv/ejGeoYn5PDJ0Gxo8E+jzfn0+T7bVsOJtEdR8sUet1VriXDTdLVVZU0CfqDuiT0TNgV+kRkyR6IuI2G+LOrH7VlGensZ/vChr6Bhtgb boss@centos001"

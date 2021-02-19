@@ -1,0 +1,39 @@
+---
+#- name: Create Admin User
+#  user:
+#    name: "{{ item.username}}"
+#    password: '{{ user_password }}'
+#    groups: wheel
+#    append: yes
+#    shell: /bin/bash
+#  with_items: "{{ users }}"
+
+#- name: Add  Authorized Key
+#  authorized_key:
+#    user: "{{ item.username}}"
+#    key: '{{ pub_key }}'
+#    state: present
+#  ignore_errors: yes
+#  with_items: "{{ users }}"
+#
+- name: print something
+  debug:
+    msg: "An item: {{ item }}"
+  with_items:
+      -1
+      -2
+      -3
+
+- name: add several users
+  user:
+    name: "{{ item }}"
+    groups: "wheel"
+    state: present
+  with_items:
+     - testuser1
+     - testuser2
+
+- name: "loop through list from a variable"
+  debug:
+    msg: "An item: {{ item }}"
+  with_items: "{{ ssh_keys }}"

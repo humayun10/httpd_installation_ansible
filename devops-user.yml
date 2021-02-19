@@ -1,0 +1,49 @@
+---
+ - hosts: web
+   vars:
+    - halam_password: '$6$a2pUlzWP31ZRiCvE$hDWZGBF609Azp9DGOLAN3G6LNRsydt695/hzFAwgbKzNypOI6eeU14pOhBT9Y8uHBVbx00KWKI3Qt.EpyYxbK/'
+   gather_facts: no
+   become: true
+
+   tasks:
+
+    - name: Add a new user named halam
+      user:
+        name: halam
+        shell: /bin/bash
+        password: "{{ halam_password }}"
+
+    - name: Add halam to the sudoers
+      copy:
+        dest: "/etc/sudoers.d/halam"
+        content: "halam ALL=(ALL) NOPASSWD: ALL"
+
+    - name: Deploy SSH Key
+      authorized_key: 
+        user: halam
+        key: "{{ lookup('file', '/home/halam/.ssh/halam_ssh_key.pub') }}"
+        state: present
+
+    - name: Disable Password Authentication
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: '^PasswordAuthentication'
+        line: "PasswordAuthentication no"
+        state: present
+        backup: yes
+
+    - name: Disable Root Login
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: '^PermitRootLogin'
+        line: "PermitRootLogin no"
+        state: present
+        backup: yes
+      notify:
+       - restart ssh
+
+   handlers:
+    - name: restart ssh
+      service:
+        name: sshd
+        state: restarted
