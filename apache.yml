@@ -7,5 +7,5 @@
   vars_files:
     - "vars/private.yml"
   roles:
-#    - httpd
-    - users
+    - httpd
+#    - users

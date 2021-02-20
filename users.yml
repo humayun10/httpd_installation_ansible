@@ -5,7 +5,13 @@
     users:
     - medz
     - tahir
+
   tasks:
+  - name: Add group Admin
+    group:
+      name: admin
+      state: present
+
   - name: "Create user accounts and add users to groups"
     user:
       name: "{{ item }}"
