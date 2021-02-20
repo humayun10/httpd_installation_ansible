@@ -5,17 +5,12 @@ pipeline {
         SERVER_CREDENTIALS = credentials('server-admin')
     } 
     stages {
-        stage("Build") {
+        stage('Build') {
             steps {
                 echo 'Building the application'
-                echo "Building version ${NEW_VERSION}"
-        }
-        stage("Test") {
-            when {
-                expression {
-                    BRANCH_NAME == 'dev'
-                }
             }
+        }
+        stage('Test') {
             steps {
                 echo 'Testing the application'
             }
@@ -23,7 +18,6 @@ pipeline {
         stage("Deploy") {
             steps {
                 echo 'Deploying the application'
-               
             }
         }
     }
