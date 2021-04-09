@@ -1,3 +1,4 @@
 ---
 
 domain: test.com
+hostname: $(hostame)

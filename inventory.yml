@@ -42,7 +42,11 @@
 
 ## db-[99:101]-node.example.com
 [web]
-vb2
+#vb2
+#kvm-lb001
+kvm-web001
+#kvm-web002
+kvm-deploy
 
 [local]
 127.0.0.1

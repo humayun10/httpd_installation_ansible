@@ -1,10 +1,8 @@
 ---
 users:
-  - username: oleg
-  - username: ahmed
-  - username: ray
-  - username: ria
-  - username: jack
+  - tahir
+  - medz
+
 
 ssh_keys:
   - tahir_pub_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6Ojd+Hmdep1i/Ca4TVWCUK+oNmfgEPcPxUilD8m49W49CR/+0OoTRvFUmPDrQS99J1lreelh79YUQDTpnkvdjrWWxupssE3fDo9j7oxdBzs3EnlmTWh/G6qjkXtLGXAyn7hVETZRrVSdVRKCgEhoPqEq+8F6RaDrsJZCcyzMnaUpfxOVJLB0o31ij/VvV0mBdylk7qxpEuIsm0R/TnV/vItGYPBlzL0VL9eNGJRUm84t2mPYzp9Tq4C5iYnbp/9BNFjiHgc5I9VLXKHUiNTTp0IlvuFxtuz/0A/YsGE4z9Rd0JKwHbxgMQBjPnF9DGz+3bTRGP8eXNyqil1X3+p21 tahir@gmail.com"

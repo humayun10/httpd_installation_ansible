@@ -1,11 +1,4 @@
 ---
-- hosts: "web"
-  connection: "local"
-  vars:
-    users:
-    - paul
-    - tanya
-    - ruby
-  tasks:
-  - name: "Ping?"
-    ping:
+
+- name: Include users.yml
+  include: users.yml
