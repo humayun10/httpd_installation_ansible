@@ -1,0 +1,34 @@
+---
+- hosts: "web"
+  become: yes
+  vars:
+    users:
+    - medz
+    - tahir
+
+  tasks:
+  - name: Add group Admin
+    group:
+      name: admin
+      state: present
+
+  - name: "Create user accounts and add users to groups"
+    user:
+      name: "{{ item }}"
+      groups: admin
+      shell: /bin/bash
+    with_items: "{{ users }}"
+
+  - name: Add authorized keys
+    authorized_key:
+      user: "{{ item }}"
+      key: "{{ lookup('file', 'roles/users/files/'+ item + '-sshkey.pub') }}" 
+    with_items: "{{ users }}"
+
+  - name: Add to sudoers
+    lineinfile:
+      dest: "/etc/sudoers"
+      state: "present"
+      regexp: "^%admin"
+      line: "%admin ALL=(ALL) NOPASSWD: ALL"
+

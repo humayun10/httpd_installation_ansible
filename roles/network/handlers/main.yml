@@ -1,0 +1,5 @@
+---
+
+- name: Reload NetworkManager
+  service: name=NetworkManager state=restarted
+  register: NetworkManagerRestarted 

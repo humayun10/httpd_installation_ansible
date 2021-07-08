@@ -1,5 +1,5 @@
 ---
-- hosts: kvm-web002
+- hosts: lb
   gather_facts: "no"
   become: yes
   become_user: root
@@ -7,7 +7,5 @@
   vars_files:
     - "vars/private.yml"
   roles:
-#     - users
-#     - httpd
-     - network
-    
+     - users
+     - load_balancer 

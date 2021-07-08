@@ -1,0 +1,24 @@
+---
+
+- name: Copy NetworkManager config
+  ansible.builtin.copy:
+    src: NetworkManager.conf
+    dest: /etc/NetworkManager/NetworkManager.conf
+    owner: root
+    group: root
+    mode: '0644'
+  register: copyNetworkManager
+  notify:
+   - Reload NetworkManager
+
+
+- name: Copy resolv.conf
+  ansible.builtin.copy:
+    src: resolv.conf
+    dest: /etc/resolv.conf
+    owner: root
+    group: root
+    mode: '0644'
+  when: copyNetworkManager is succeeded
+
+  

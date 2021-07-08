@@ -1,0 +1,32 @@
+---
+
+- name: Add epel repo
+  yum_repository:
+    name: epel
+    description: EPEL YUM repo
+    baseurl: http://download.fedoraproject.org/pub/epel/7/$basearch
+    gpgcheck: no
+  register: addedrepo
+
+- name: Install haproxy
+  yum: name=haproxy state=installed update_cache=true
+  when: addedrepo is succeeded
+  register: haproxyinstalled
+  notify:
+   - Start Haproxy
+
+- name: Enable Haproxy
+  service:
+    name: haproxy
+    enabled: yes
+  when: haproxyinstalled is succeeded
+
+- name: add haproxy config
+  template:
+#    src: /mytemplates/haproxy.cfg.j2 
+    src: /home/halam/git_stuff/httpd_installation_ansible/roles/load_balancer/templates/haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+    owner: root
+    group: root
+  notify:
+   - Reload Haproxy

@@ -1,0 +1,6 @@
+---
+
+backend_host1: kvm-web001
+backend_ip1: 192.168.1.31
+backend_host2: kvm-web002
+backend_ip2: 192.168.1.200

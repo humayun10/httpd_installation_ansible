@@ -1,5 +1,5 @@
 ---
- - hosts: web
+ - hosts: 192.168.1.80
    vars:
     - halam_password: '$6$a2pUlzWP31ZRiCvE$hDWZGBF609Azp9DGOLAN3G6LNRsydt695/hzFAwgbKzNypOI6eeU14pOhBT9Y8uHBVbx00KWKI3Qt.EpyYxbK/'
    gather_facts: no
